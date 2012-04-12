@@ -6,12 +6,13 @@ import java.nio.charset.Charset;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import org.apache.log4j.Logger;
 import org.qrone.xmlsocket.event.XMLSocketServerListener;
 import org.qrone.xmlsocket.nio.SelectorServerSocket;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class XMLSocketServer extends SelectorServerSocket{
-	private static final Logger log = Logger.getLogger(XMLSocketServer.class);
+	private static final Logger log = LoggerFactory.getLogger(XMLSocket.class);
 	
 	public XMLSocketServer() throws IOException {
 		super(new XMLSocketThread());

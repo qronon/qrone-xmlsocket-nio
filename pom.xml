@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>qrone</groupId>
+  <artifactId>qrone-xmlsocket-nio</artifactId>
+  <version>1.0</version>
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>org.slf4j</groupId>
+  		<artifactId>slf4j-simple</artifactId>
+  		<version>1.6.4</version>
+  	</dependency>
+  </dependencies>
+  
+  <distributionManagement>
+    <repository>
+      <id>qrone</id>
+      <name>qrone.org Repository</name>
+      <url>dav:http://mvn.qrone.org</url>
+    </repository>
+  </distributionManagement>
+  
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <scriptSourceDirectory>scripts</scriptSourceDirectory>
+    <testSourceDirectory>test</testSourceDirectory>
+    <outputDirectory>bin</outputDirectory>
+    <testOutputDirectory>bin-test</testOutputDirectory>
+    
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+            <source>1.6</source>
+            <target>1.6</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

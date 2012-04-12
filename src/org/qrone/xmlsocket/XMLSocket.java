@@ -11,14 +11,14 @@ import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
 
-import org.apache.log4j.Logger;
-import org.qrone.XMLTools;
 import org.qrone.xmlsocket.event.XMLSocketListener;
 import org.qrone.xmlsocket.inner.XMLSocketProtocolDecoder;
 import org.qrone.xmlsocket.inner.XMLSocketProtocolEncoder;
 import org.qrone.xmlsocket.nio.ExceptionListener;
 import org.qrone.xmlsocket.nio.SelectorSocket;
 import org.qrone.xmlsocket.nio.SelectorThread;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
@@ -36,7 +36,7 @@ import org.xml.sax.SAXException;
  * @author Administrator
  */
 public class XMLSocket extends SelectorSocket{
-	private static final Logger log = Logger.getLogger(XMLSocket.class);
+	private static final Logger log = LoggerFactory.getLogger(XMLSocket.class);
 
 	/**
 	 * XMLSocket　通信オブジェクトを生成します。ここから新しくオブジェクトをつくって新しい通信を行う
@@ -134,21 +134,6 @@ public class XMLSocket extends SelectorSocket{
 	 * @param str 送信する文字列 （XML であるべきです）
 	 */
 	public void send(String str) {
-		try {
-			send(str.getBytes(outputcs.displayName()));
-			log.debug("SEND " + ipaddress + " " + str);
-		} catch (UnsupportedEncodingException e) {}
-	}
-
-	/**
-	 * XML ドキュメントを相手側に送ります。
-	 * 
-	 * @param doc 送信する XML ドキュメント
-	 */
-	public void send(Document doc) throws TransformerException {
-		Transformer t = XMLTools.transformerFactory.newTransformer();
-		t.setOutputProperty(OutputKeys.ENCODING,outputcs.displayName());
-		String str = XMLTools.write(doc,t);
 		try {
 			send(str.getBytes(outputcs.displayName()));
 			log.debug("SEND " + ipaddress + " " + str);
@@ -265,9 +250,6 @@ public class XMLSocket extends SelectorSocket{
 			((XMLSocketListener) iter.next()).onData(data);
 		}
 		log.debug("DATA " + ipaddress + " " + data);
-		try {
-			onXML(XMLTools.read(data));
-		} catch (SAXException e) {}
 	}
 
 	/**

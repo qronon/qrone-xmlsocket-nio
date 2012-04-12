@@ -9,11 +9,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
-
 public class SelectorThread {
-	private static final Logger log = Logger.getLogger(SelectorThread.class);
-	
 	private ExceptionListener listener;
 	private Selector selector;
 	private Object timeoutWait = new Object();
