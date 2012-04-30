@@ -253,19 +253,6 @@ public class XMLSocket extends SelectorSocket{
 	}
 
 	/**
-	 * データ受信後のさらに XML 解析後、に呼ばれ、XMLSocketListener に通知します。<BR>
-	 * <BR>
-	 * このクラスを継承したクラスを作る場合にはこのメソッドを継承することで onXML(Document) イベントを
-	 * 取得できます。このイベントを取得するには setXMLParseing(boolean) に true (default)
-	 * が設定されている必要があります。
-	 */
-	protected void onXML(Document doc) {
-		for (Iterator iter = xmllistener.iterator(); iter.hasNext();) {
-			((XMLSocketListener) iter.next()).onXML(doc);
-		}
-	}
-
-	/**
 	 * イベントハンドラを登録します。このメソッドを利用して XMLSocketListener を実装したクラスを
 	 * 登録してイベントを取得、適宜処理を行ってください。
 	 * 

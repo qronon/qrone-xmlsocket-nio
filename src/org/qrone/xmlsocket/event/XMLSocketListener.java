@@ -41,10 +41,4 @@ public interface XMLSocketListener {
 	 * @param data
 	 */
 	public void onData(String data);
-	/**
-	 * データ受信の後、 XML 解析をした上で呼び出されます。 DOM を利用したい場合には解析後のこちらを利用す
-	 * ると簡単でよいでしょう。
-	 * @param doc
-	 */
-	public void onXML(Document doc);
 }
