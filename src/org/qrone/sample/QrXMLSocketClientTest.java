@@ -26,7 +26,6 @@ public class QrXMLSocketClientTest {
 		try {
 			st = new XMLSocketThread();
 		} catch (IOException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 		
@@ -62,10 +61,6 @@ public class QrXMLSocketClientTest {
 				public void onData(String data) {
 					System.out.println("flash:"+clientnumber+":data:"+data);
 				}
-	
-				// Flash から受信したデータの XML DOM
-				public void onXML(Document doc) {
-				}
 			});
 			
 			// サーバーを開始する
@@ -73,13 +68,10 @@ public class QrXMLSocketClientTest {
 				socket.connect("localhost",9601);
 				Thread.sleep(10);
 			} catch (UnknownHostException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

@@ -23,14 +23,13 @@ public class QrXMLSocketServer {
 	
 	public static void main(String[] args){
 		// 接続中のクライアントのリスト
-		final LinkedList clientList = new LinkedList();
+		final LinkedList<XMLSocket> clientList = new LinkedList();
 		
 		// XMLSocketServer の作成
 		XMLSocketServer socketServer = null;
 		try {
 			socketServer = new XMLSocketServer();
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		socketServer.setEncoding("UTF-8");
